@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PDFDownloadLink, Document, Page, Text, View, StyleSheet, Font, pdf } from '@react-pdf/renderer';
 import * as docx from 'docx';
 import { saveAs } from 'file-saver';
+import { Clipboard, FileText } from 'lucide-react';
 
 
 // Font registration for PDF
@@ -390,20 +391,20 @@ const handlePrint = () => {
   return (
     <div className="max-w-5xl mx-auto p-6 space-y-6">
     <div className="flex items-center justify-between mb-8">
-      <h1 className="text-4xl font-bold text-gray-900">Markdown Formatter</h1>
+      <h1 className="text-4xl font-bold text-gray-900">AI Text Formatting</h1>
       <div className="flex gap-2">
   <button
     onClick={copyToClipboard}
     className="inline-flex items-center gap-2 px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
   >
-    {/* Existing copy button */}
+    <Clipboard />
   </button>
   <PDFDownloadLink
     document={<MyDocument />}
     fileName="markdown_document.pdf"
     className="inline-flex items-center gap-2 px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
   >
-    {/* Existing PDF export */}
+    <FileText />
   </PDFDownloadLink>
   <button
     onClick={generateDocxDocument}
